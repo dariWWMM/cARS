@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "f31845a3-92b9-4a34-82ed-1d5eda2486b7",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27561502",
+		"_collection_link": "https://www.postman.com/speeding-equinox-237777/workspace/qahilel/collection/27561502-f31845a3-92b9-4a34-82ed-1d5eda2486b7?action=share&source=collection_link&creator=27561502"
+	},
+	"item": [
+		{
+			"name": "create_user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const schema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\":{\r",
+							"        \"name\":{\r",
+							"            \"type\":\"string\",\r",
+							"            \"maxLength\": 20,\r",
+							"            \"minLength\": 2\r",
+							"        },\r",
+							"        \"lastName\":{\r",
+							"            \"type\":\"string\",\r",
+							"            \"maxLength\": 20,\r",
+							"            \"minLength\": 2\r",
+							"        },\r",
+							"        \"email\":{\r",
+							"            \"type\":\"string\"\r",
+							"        },\r",
+							"        \"password\":{\r",
+							"            \"type\":\"string\",\r",
+							"            \"maxLength\": 15,\r",
+							"            \"minLength\": 8\r",
+							"        },\r",
+							"    },\r",
+							"    \"required\": [\r",
+							"        \"name\",\r",
+							"        \"lastName\",\r",
+							"        \"email\",\r",
+							"        \"password\",\r",
+							"        \"repeatPassword\"\r",
+							"    ]\r",
+							"}\r",
+							"\r",
+							"let requestBody = JSON.parse(pm.request.body.raw)\r",
+							"\r",
+							"pm.test(\"Validate Schema\", () => {\r",
+							"    pm.expect(requestBody).to.have.jsonSchema(schema)\r",
+							"})\r",
+							"pm.test(\"Validate Email\", () => {\r",
+							"    pm.expect(requestBody.email).to.match(/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Validate Password\", () => {\r",
+							"    pm.expect(requestBody.password).to.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).*$/)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Validate repeatPassword\", () => {\r",
+							"    pm.expect(requestBody.password).to.eql(requestBody.repeatPassword)\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Tony\",\r\n  \"lastName\": \"Boba\",\r\n  \"email\": \"ton@boba.com\",\r\n  \"password\": \"TonyBoba0\",\r\n  \"repeatPassword\": \"TonyBoba0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/signup",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/logout",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const schema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\":{\r",
+							"        \"remember\":{\r",
+							"            \"type\":\"boolean\"\r",
+							"        }\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"let requestBody = JSON.parse(pm.request.body.raw)\r",
+							"\r",
+							"pm.test(\"Validate Remember\", () => {\r",
+							"    pm.expect(requestBody).to.have.jsonSchema(schema)\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"ton@boba.com\",\r\n  \"password\": \"TonyBoba0\",\r\n  \"remember\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/signin",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit_user_profile",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let requestBody = JSON.parse(pm.request.body.raw)\r",
+							"\r",
+							"pm.test(\"Validate Date\", () => {\r",
+							"    pm.expect(requestBody.dateBirth).to.match(/^\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d(?:\\.\\d+)?Z?$/)\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var requestJson = JSON.parse(pm.request.body.raw)\r",
+							"var responseJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"name test\", function () {\r",
+							"    pm.expect(requestJson.name).to.eql(responseJson.data.name);\r",
+							"});\r",
+							"pm.test(\"last name test\", function () {\r",
+							"    pm.expect(requestJson.lastName).to.eql(responseJson.data.lastName);\r",
+							"});\r",
+							"pm.test(\"date test\", function () {\r",
+							"    pm.expect(requestJson.dateBirth).to.eql(responseJson.data.dateBirth);\r",
+							"});\r",
+							"pm.test(\"country test\", function () {\r",
+							"    pm.expect(requestJson.country).to.eql(responseJson.data.country);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"photo\": \"user-1621352948859.jpg\",\r\n  \"name\": \"VIKKY\",\r\n  \"lastName\": \"dOUS\",\r\n  \"dateBirth\": \"2021-03-17T15:21:05.000Z\",\r\n  \"country\": \"Ukraine\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/users/profile",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/users",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
