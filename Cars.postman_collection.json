@@ -1,0 +1,588 @@
+{
+	"info": {
+		"_postman_id": "72f12700-aa47-429d-b42f-94be4ee43a7e",
+		"name": "homework_14.1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27561502",
+		"_collection_link": "https://www.postman.com/speeding-equinox-237777/workspace/qahilel/collection/27561502-72f12700-aa47-429d-b42f-94be4ee43a7e?action=share&source=collection_link&creator=27561502"
+	},
+	"item": [
+		{
+			"name": "invalid_data_tests",
+			"item": [
+				{
+					"name": "create_user_test1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"VIKKY\",\r\n  \"lastName\": \"dOUS\",\r\n  \"email\": \"teeestteeest.com\",\r\n  \"password\": \"Qwerty10985\",\r\n  \"repeatPassword\": \"Qwerty10985\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/auth/signup",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_user_test2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"VIKKY\",\r\n  \"lastName\": \"dOUS\",\r\n  \"email\": \"teeest@teeestcom\",\r\n  \"password\": \"Qwerty10985\",\r\n  \"repeatPassword\": \"Qwerty10985\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/auth/signup",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_user_test3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"VIKKY\",\r\n  \"lastName\": \"dOUS\",\r\n  \"email\": \"teee1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111s@teeest.com\",\r\n  \"password\": \"Qwerty10985\",\r\n  \"repeatPassword\": \"Qwerty10985\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/auth/signup",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_user_test4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"VIKKY\",\r\n  \"lastName\": \"dOUS\",\r\n  \"email\": \"Жt@teeest.com\",\r\n  \"password\": \"Qwerty10985\",\r\n  \"repeatPassword\": \"Qwerty10985\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/auth/signup",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "BUG",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"VIKKY\",\r\n  \"lastName\": \"dOUS\",\r\n  \"email\": \"Жt@teeest.com\",\r\n  \"password\": \"Qwerty10985\",\r\n  \"repeatPassword\": \"Qwerty10985\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_url}}/auth/signup",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Nov 2024 11:10:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "112"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "remember_me=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sid=s%3AzRJDxV6S77lsP9oBg58eV8ja92EtrQTS.%2BvgJT7elCGXvMdloas1B8rfkKUSygnUsLdedRyGKgsg; Domain=.forstudy.space; Path=/; Expires=Sun, 24 Nov 2024 11:10:04 GMT"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"70-5uXVGaLIl7cTJg0yoCUpSZwOnsM\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\",\n    \"data\": {\n        \"userId\": 66831,\n        \"photoFilename\": \"default-user.png\",\n        \"distanceUnits\": \"km\",\n        \"currency\": \"usd\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create_user_test5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"VIKKY\",\r\n  \"lastName\": \"dOUS\",\r\n  \"email\": \" @#%@teeest.com\",\r\n  \"password\": \"Qwerty10985\",\r\n  \"repeatPassword\": \"Qwerty10985\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/auth/signup",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "create_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"VIKKY\",\r\n  \"lastName\": \"dOUS\",\r\n  \"email\": \"teeest@teeest.com\",\r\n  \"password\": \"Qwerty10985\",\r\n  \"repeatPassword\": \"Qwerty10985\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/signup",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit_user_profile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var requestJson = JSON.parse(pm.request.body.raw)\r",
+							"var responseJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"name test\", function () {\r",
+							"    pm.expect(requestJson.name).to.eql(responseJson.data.name);\r",
+							"});\r",
+							"pm.test(\"last name test\", function () {\r",
+							"    pm.expect(requestJson.lastName).to.eql(responseJson.data.lastName);\r",
+							"});\r",
+							"pm.test(\"date test\", function () {\r",
+							"    pm.expect(requestJson.dateBirth).to.eql(responseJson.data.dateBirth);\r",
+							"});\r",
+							"pm.test(\"country test\", function () {\r",
+							"    pm.expect(requestJson.country).to.eql(responseJson.data.country);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"photo\": \"user-1621352948859.jpg\",\r\n  \"name\": \"VIKKY\",\r\n  \"lastName\": \"dOUS\",\r\n  \"dateBirth\": \"2021-03-17T15:21:05.000Z\",\r\n  \"country\": \"Ukraine\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/users/profile",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change_password",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let api_url = pm.environment.get(\"api_url\");\r",
+							"\r",
+							"let getCurrentUser = await pm.sendRequest({\r",
+							"        url: api_url + \"/users/current\",\r",
+							"        method: \"GET\"\r",
+							"    });\r",
+							"\r",
+							"let getCurrentUserJson = getCurrentUser.json()\r",
+							"\r",
+							"let responseJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"test\", function () {\r",
+							"    pm.expect(getCurrentUserJson.data.userId).to.eql(responseJson.data.userId);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"oldPassword\": \"Qwerty12345\",\r\n  \"password\": \"Qwerty123456\",\r\n  \"repeatPassword\": \"Qwerty123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/users/password",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/logout",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"teeest@teeest.com\",\r\n  \"password\": \"Qwerty12345\",\r\n  \"remember\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/auth/signin",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_car",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"carBrandId\": 5,\r\n  \"carModelId\": 21,\r\n  \"mileage\": 1238\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/cars",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_expense",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let requestBody = JSON.parse(pm.request.body.raw)\r",
+							"\r",
+							"let api_url = pm.environment.get(\"api_url\");\r",
+							"\r",
+							"let getCurrentCar = await pm.sendRequest({\r",
+							"        url: api_url + \"/cars/\" + requestBody.carId,\r",
+							"        method: \"GET\"\r",
+							"    });\r",
+							"\r",
+							"let getCurrentCarJson = getCurrentCar.json()\r",
+							"\r",
+							"pm.test(\"Validate Mileage\", () => {\r",
+							"    pm.expect(requestBody.mileage).to.greaterThan(getCurrentCarJson.data.mileage)\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"carId\": 130602,\r\n  \"reportedAt\": \"2024-12-03\",\r\n  \"mileage\": 1256,\r\n  \"liters\": 13,\r\n  \"totalCost\": 8,\r\n  \"forceMileage\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/expenses",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"expenses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/users",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_user_profile",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let api_url = pm.environment.get(\"api_url\");\r",
+							"\r",
+							"let logout = await pm.sendRequest({\r",
+							"        url: api_url + \"/auth/logout\",\r",
+							"        method: \"GET\"\r",
+							"    });\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const schema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\":{\r",
+							"        \"status\":{\r",
+							"            \"type\":\"string\"\r",
+							"        },\r",
+							"        \"message\":{\r",
+							"            \"type\":\"string\"\r",
+							"        }\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"var responseJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Validate Types\", () => {\r",
+							"    pm.expect(responseJson).to.have.jsonSchema(schema)\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/users/profile",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
